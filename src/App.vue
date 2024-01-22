@@ -1,13 +1,18 @@
 <template>
+  <AppHeader />
   <router-view></router-view>
 </template>
 
 <script>
 import axios from 'axios';
 import { store } from './data/store.js';
+import AppHeader from './components/AppHeader.vue';
+
 export default {
   name: "App",
-  components: {},
+  components: {
+    AppHeader,
+  },
   data() {
     return {
       store,

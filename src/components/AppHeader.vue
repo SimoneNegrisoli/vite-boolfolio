@@ -9,14 +9,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
+
+                        <li class="nav-item" v-for="item in menu">
+                            <router-link class="nav-link" :to="{ name: item.name }">{{ item.label }}</router-link>
                         </li>
                     </ul>
                 </div>
@@ -29,7 +24,20 @@
 export default {
     name: 'AppHeader',
     data() {
-        return {}
+        return {
+            menu: [
+                {
+                    label: 'Home',
+                    name: 'home'
+
+                },
+                {
+                    label: 'Projects',
+                    name: 'projects'
+
+                }
+            ]
+        }
     }
 }
 </script>

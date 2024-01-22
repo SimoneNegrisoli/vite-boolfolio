@@ -1,10 +1,11 @@
-
-import { store } from '@/data/store';
-
 <template>
     <h1>Project list</h1>
     <ul>
-        <li v-for="project in store.projects" :key="project.id">{{ project.title }}</li>
+        <li v-for="project in store.projects" :key="project.id">
+            <router-link :to="{ name: 'project-show', params: { slug: project.slug } }">
+                {{ project.title }}
+            </router-link>
+        </li>
     </ul>
 </template>
 
