@@ -21,7 +21,7 @@ export default {
   methods: {
     getApiTest() {
       axios.get(this.store.apiUrl + "projects").then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
       });
     }
   },

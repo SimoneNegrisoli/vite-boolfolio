@@ -11,7 +11,8 @@
                     <ul class="navbar-nav">
 
                         <li class="nav-item" v-for="item in menu">
-                            <router-link class="nav-link" :to="{ name: item.name }">{{ item.label }}</router-link>
+                            <router-link class="nav-link" active-class="active" :to="{ name: item.name }">{{ item.label
+                            }}</router-link>
                         </li>
                     </ul>
                 </div>

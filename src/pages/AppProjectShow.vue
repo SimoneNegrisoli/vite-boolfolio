@@ -1,10 +1,8 @@
-
-import { store } from '@/data/store';
-
-import { Axios } from 'axios';
 <template>
     <div>
-        ciao
+        <h1>CIAO</h1>
+        {{ project.title }}
+
     </div>
 </template>
 
@@ -16,15 +14,23 @@ export default {
     name: 'AppProjectShow',
     data() {
         return {
-            project: null
+            store,
+            project: '',
         }
     },
     methods: {
         getProject() {
             axios.get(`${this.store.apiUrl}projects/${this.$route.params.slug}`).then((res) => {
-
+                if (res.data.results) {
+                    this.project = res.data.results;
+                } else {
+                    this.$router.push({ name: 'not-found' })
+                }
             })
         }
+    },
+    created() {
+        this.getProject();
     }
 
 }
