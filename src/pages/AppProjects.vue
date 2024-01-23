@@ -7,6 +7,26 @@
             </div>
         </div>
 
+        <nav class="d-flex">
+            <ul class="pagination">
+                <li class="page-item" :class="{ 'disabled': currentPage === 1 }">
+                    <button class="page-link" :disabled="currentPage === 1" @click="getAllProject(currentPage - 1)">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                </li>
+                <li class="page-item" v-for="n in lastPage">
+                    <button class="page-link" @click="getAllProject(n)">{{ n }}</button>
+                </li>
+                <li class="page-item" :class="{ 'disabled': currentPage === lastPage }">
+                    <button class="page-link" :disabled="currentPage === lastPage" @click="getAllProject(currentPage + 1)">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </li>
+
+
+            </ul>
+        </nav>
+
     </main>
 </template>
 
@@ -23,20 +43,30 @@ export default {
     data() {
         return {
             store,
+            currentPage: 1,
+            lastPage: null,
+            total: 0
         };
     },
     methods: {
-        getAllProject() {
-            axios.get(`${this.store.apiUrl}projects`).then((res) => {
+        getAllProject(pageNum) {
+            axios.get(`${this.store.apiUrl}projects`, { params: { page: pageNum } }).then((res) => {
                 console.log(res.data);
                 this.store.projects = res.data.results.data;
-            }).catch((err) => { });
+                this.store.currentPage = res.data.results.current_page;
+                this.store.lastPage = res.data.results.last_page;
+                this.store.total = res.data.results.total;
+
+
+            }).catch((err) => {
+                console.log(err)
+            });
         },
     },
     created() {
-        this.getAllProject();
+        this.getAllProject(this.currentPage);
     },
-    components: { ProjectCard }
+
 }
 </script>
 
