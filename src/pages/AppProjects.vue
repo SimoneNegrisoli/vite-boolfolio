@@ -53,9 +53,10 @@ export default {
             axios.get(`${this.store.apiUrl}projects`, { params: { page: pageNum } }).then((res) => {
                 console.log(res.data);
                 this.store.projects = res.data.results.data;
-                this.store.currentPage = res.data.results.current_page;
-                this.store.lastPage = res.data.results.last_page;
-                this.store.total = res.data.results.total;
+
+                this.currentPage = res.data.results.current_page;
+                this.lastPage = res.data.results.last_page;
+                this.total = res.data.results.total;
 
 
             }).catch((err) => {
