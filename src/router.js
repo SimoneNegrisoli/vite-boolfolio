@@ -3,6 +3,7 @@ import AppHome from "./pages/AppHome.vue";
 import AppProjects from "./pages/AppProjects.vue";
 import AppProjectShow from "./pages/AppProjectShow.vue";
 import NotFound from "./pages/NotFound.vue";
+import AppContact from "./pages/AppContact.vue";
 
 
 const router = createRouter({
@@ -22,6 +23,11 @@ const router = createRouter({
             path: "/projects/:slug",
             name: "project-show",
             component: AppProjectShow,
+        },
+        {
+            path: "/contacts",
+            name: "contacts",
+            component: AppContact,
         },
         {
             path: "/:pathMatch(.*)*",
