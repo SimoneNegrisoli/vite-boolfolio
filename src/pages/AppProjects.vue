@@ -7,7 +7,7 @@
             </div>
         </div>
 
-        <nav class="d-flex">
+        <nav class="d-flex align-items-center mt-2">
             <ul class="pagination">
                 <li class="page-item" :class="{ 'disabled': currentPage === 1 }">
                     <button class="page-link" :disabled="currentPage === 1" @click="getAllProject(currentPage - 1)">
