@@ -17,7 +17,7 @@
                 <li class="page-item" v-for="n in lastPage" :key="n">
                     <button class="page-link" @click="getAllProject(n)">{{ n }}</button>
                 </li>
-                <li class="page-item">
+                <li class="page-item" :class="{ 'disabled': currentPage === lastPage }">
                     <button class="page-link" :disabled="currentPage === lastPage" @click="getAllProject(currentPage + 1)">
                         <i class="fa-solid fa-chevron-right"></i>
                     </button>
