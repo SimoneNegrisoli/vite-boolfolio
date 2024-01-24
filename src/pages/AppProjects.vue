@@ -14,10 +14,10 @@
                         <i class="fa-solid fa-chevron-left"></i>
                     </button>
                 </li>
-                <li class="page-item" v-for="n in lastPage">
+                <li class="page-item" v-for="n in lastPage" :key="n">
                     <button class="page-link" @click="getAllProject(n)">{{ n }}</button>
                 </li>
-                <li class="page-item" :class="{ 'disabled': currentPage === lastPage }">
+                <li class="page-item">
                     <button class="page-link" :disabled="currentPage === lastPage" @click="getAllProject(currentPage + 1)">
                         <i class="fa-solid fa-chevron-right"></i>
                     </button>
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import ProjectCard from '@/components/ProjectCard.vue';
+import ProjectCard from '../components/ProjectCard.vue';
 import { store } from '../data/store.js';
 import axios from "axios";
 
