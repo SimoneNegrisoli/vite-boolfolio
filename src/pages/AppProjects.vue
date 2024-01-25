@@ -1,6 +1,6 @@
 <template>
     <main class="container">
-        <div class="d-flex justify-content-between align-itmes-center">
+        <div class="d-flex justify-content-between align-items-center mt-3 mb-3">
             <h1>Project list</h1>
             <div>
                 <select name="type" id="type" v-model="selectedType">
