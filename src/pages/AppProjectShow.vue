@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <h1>{{ project.title }}</h1>
         <div class="my-img-c">
             <img :src="`${store.imgPath}${project.image}`" :alt="project.title">

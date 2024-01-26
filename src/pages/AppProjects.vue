@@ -9,8 +9,8 @@
                 </select>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 col-md-4 col-lg-3 justify-content-between" v-for="project in store.projects"
+        <div class="row justify-content-between">
+            <div class="col-12 col-md-4 col-lg-3 d-flex justify-content-between" v-for="project in store.projects"
                 :key="project.id">
                 <ProjectCard :project="project" />
             </div>

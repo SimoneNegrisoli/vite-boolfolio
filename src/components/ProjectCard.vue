@@ -1,6 +1,9 @@
 <template>
     <div class="card">
-        <img :src="`${store.imgPath}${project.image}`" class="card-img-top" :alt="project.title">
+        <div class="my-img-c align-center">
+            <img :src="`${store.imgPath}${project.image}`" class="card-img-top" :alt="project.title">
+        </div>
+
         <div class="card-body">
             <h5 class="card-title">{{ truncateTitle }}</h5>
             <p class="card-text">{{ truncateBody }}</p>
@@ -41,7 +44,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-img {
-    width: 300px;
+.my-img-c {
+    max-width: 300px;
+
+    img {
+        width: 100%;
+    }
 }
 </style>
