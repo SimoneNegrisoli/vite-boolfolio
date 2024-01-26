@@ -10,7 +10,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-4 col-lg-3" v-for="project in store.projects" :key="project.id">
+            <div class="col-12 col-md-4 col-lg-3 justify-content-between" v-for="project in store.projects"
+                :key="project.id">
                 <ProjectCard :project="project" />
             </div>
         </div>
