@@ -1,7 +1,9 @@
 <template>
     <div>
         <h1>{{ project.title }}</h1>
-        <img :src="`${store.imgPath}${project.image}`" :alt="project.title">
+        <div class="my-img-c">
+            <img :src="`${store.imgPath}${project.image}`" :alt="project.title">
+        </div>
 
 
 
@@ -38,4 +40,12 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.my-img-c {
+    width: 500px;
+
+    img {
+        width: 100%;
+    }
+}
+</style>
